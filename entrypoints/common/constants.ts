@@ -293,6 +293,7 @@ export const LANGUAGE_OPTIONS: Array<{
   { key: 'zh-CN', locale: 'zh-CN', label: '简体中文' },
   { key: 'zh-TW', locale: 'zh-TW', label: '繁體中文' },
   { key: 'en-US', locale: 'en-US', label: 'English' },
+  { key: 'ja-JP', locale: 'ja-JP', label: '日本語' },
   { key: 'ru-RU', locale: 'ru-RU', label: 'Русский' },
 ];
 
@@ -301,6 +302,7 @@ export const defaultLanguage: LanguageTypes = 'en-US';
 const LANGUAGE_PREFIX_MAP: Record<string, LanguageTypes> = {
   zh: 'zh-CN',
   en: 'en-US',
+  ja: 'ja-JP',
   ru: 'ru-RU',
 };
 
@@ -396,6 +398,7 @@ export const USER_GUIDE_URL_MAP: Record<LanguageTypes, string> = {
   'zh-CN': '/docs/GUIDE-zh.html',
   'zh-TW': '/docs/GUIDE-zh.html',
   'en-US': '/docs/GUIDE.html',
+  'ja-JP': '/docs/GUIDE.html',
   'ru-RU': '/docs/GUIDE-ru.html',
 };
 
@@ -404,6 +407,7 @@ export const CHANGELOG_URL_MAP: Record<LanguageTypes, string> = {
   'zh-CN': '/docs/CHANGELOG-zh.html',
   'zh-TW': '/docs/CHANGELOG-zh.html',
   'en-US': '/docs/CHANGELOG.html',
+  'ja-JP': '/docs/CHANGELOG.html',
   'ru-RU': '/docs/CHANGELOG.html',
 };
 
@@ -439,3 +443,4 @@ export default {
   CHANGELOG_URL_MAP,
   DEFAULT_SEARCH_ENGINES,
 };
+

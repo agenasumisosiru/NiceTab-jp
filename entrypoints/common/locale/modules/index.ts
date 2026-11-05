@@ -23,6 +23,7 @@ const getLocales = (language: LanguageTypes) => {
 export const zhCN = getLocales('zh-CN');
 export const zhTW = getLocales('zh-TW');
 export const enUS = getLocales('en-US');
+export const jaJP = getLocales('ja-JP');
 export const ruRU = getLocales('ru-RU');
 
 export type LocaleModules = typeof zhCN;
@@ -30,6 +31,7 @@ export const modules: Record<LanguageTypes, typeof zhCN> = {
   'zh-CN': zhCN,
   'zh-TW': zhTW,
   'en-US': enUS,
+  'ja-JP': jaJP,
   'ru-RU': ruRU,
 };
 

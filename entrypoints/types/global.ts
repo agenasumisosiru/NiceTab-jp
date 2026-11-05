@@ -43,7 +43,7 @@ export interface GlobalContextProps {
 }
 
 // 语言
-export type LanguageTypes = 'zh-CN' | 'zh-TW' | 'en-US' | 'ru-RU';
+export type LanguageTypes = 'zh-CN' | 'zh-TW' | 'en-US' | 'ja-JP' | 'ru-RU';
 // react-intl formatMessage 参数
 export type IntlForamtMessageParams = MessageDescriptor & {
   id?: LocaleKeys;
@@ -202,7 +202,7 @@ export type SettingsProps = {
   linkTemplate?: string; // 链接模板
   tabCountThreshold?: number; // 分类中标签页超过该数量时，则右侧面板开启虚拟滚动
   groupInsertPosition?: InsertPositions; // 标签组插入位置：在分类的标签组列表顶部还是底部
-  tabInsertPosition?: InsertPositions; // 标签页插入位置:在标签组的标签页列表顶部还是底部
+  tabInsertPosition?: InsertPositions; // 标签页插入位置：在标签组的标签页列表顶部还是底部
   /* 展示配置 */
   groupActionBtnStyle?: ActionBtnStyle; // 操作按钮样式
   groupActionBtnsCommonlyUsed?: string[]; // 常用的标签组操作按钮
@@ -245,3 +245,4 @@ export interface SearchEngine {
 }
 
 export default { name: 'global-types' };
+
