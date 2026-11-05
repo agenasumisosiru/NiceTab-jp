@@ -6,13 +6,23 @@
   日本語 | <a href="./README.md">English</a> | <a href="./README-zh.md">中文</a> | <a href="./README-ru.md">Русский</a>
 </p>
 
-NiceTab は、OneTab、Toby、SessionBuddy などの代替として使える、ブラウザーのタブ管理拡張機能です。このリポジトリは上流版をもとに日本語表示を追加するフォークです。
+NiceTab は、OneTab、Toby、SessionBuddy などの代替として使える、ブラウザーのタブ管理拡張機能です。このフォークでは管理画面、Chrome の拡張機能メニュー、拡張機能名・説明を日本語化しています。
 
-## 日本語対応フォークについて
+## Chrome 版のビルドとインストール
 
-日本語の管理画面や Chrome の拡張機能メニューを利用するには、このフォークのブランチからビルドした版をインストールしてください。上流版の Chrome ウェブストア配布物には、このフォークの翻訳変更は自動では反映されません。
+このフォークの日本語対応を利用するには、上流のウェブストア版ではなく、このリポジトリからビルドした版を読み込んでください。
 
-詳しいビルド・インストール手順は [日本語ユーザーガイド](./GUIDE-ja.md) を参照してください。
+```bash
+git clone https://github.com/agenasumisosiru/NiceTab-jp.git
+cd NiceTab-jp
+git checkout feat/japanese-locale
+pnpm install
+pnpm build:chrome
+```
+
+ビルドが完了したら Chrome で `chrome://extensions` を開き、「デベロッパー モード」を有効にして「パッケージ化されていない拡張機能を読み込む」を選びます。`wxt build` が生成した Chrome の出力ディレクトリ（通常 `.output/chrome-mv3`）を指定してください。配布用 ZIP は `pnpm zip:chrome` で作成できます。
+
+初回起動後、管理画面の「設定」から言語を「日本語」にしてください。ブラウザー言語が日本語の場合は初期設定時に自動判定されます。
 
 ## 主な機能
 
@@ -25,16 +35,18 @@ NiceTab は、OneTab、Toby、SessionBuddy などの代替として使える、�
 - カスタム新しいタブページ、ライト／ダークテーマ、テーマカラー
 - 日本語、簡体字中国語、繁体字中国語、英語、ロシア語の表示
 
-## 開発
+詳しい操作方法は [日本語ユーザーガイド](./GUIDE-ja.md) を参照してください。
+
+## 開発・検証
 
 ```bash
-pnpm install
 pnpm compile
 pnpm test
-pnpm build
+pnpm lint:no-fix
+pnpm build:chrome
 ```
 
-Chrome 用ビルドは `pnpm build` で作成できます。ビルド後は Chrome の `chrome://extensions` でデベロッパーモードを有効にし、生成された拡張機能フォルダーを読み込んでください。
+Chrome 用ビルドは `pnpm build:chrome`、配布用 ZIP は `pnpm zip:chrome` です。Firefox 版は `pnpm build:firefox` で別途ビルドします。
 
 ## 上流プロジェクト
 

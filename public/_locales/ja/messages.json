@@ -1,38 +1,16 @@
 {
-  "action_openAdminTab": {
-    "message": "NiceTab の管理画面を開く"
-  },
-  "action_sendAllTabs": {
-    "message": "すべてのタブを送信"
-  },
-  "action_sendAllWindowsTabs": {
-    "message": "すべてのウィンドウのタブを送信"
-  },
-  "action_sendCurrentGroup": {
-    "message": "現在のタブグループを送信"
-  },
-  "action_sendCurrentTab": {
-    "message": "現在のタブを送信"
-  },
-  "action_sendOtherTabs": {
-    "message": "他のタブを送信"
-  },
-  "action_sendLeftTabs": {
-    "message": "左側のタブを送信"
-  },
-  "action_sendRightTabs": {
-    "message": "右側のタブを送信"
-  },
-  "action_globalSearch": {
-    "message": "保存済みタブを検索"
-  },
-  "action_startSync": {
-    "message": "同期を開始"
-  },
-  "action_hibernateTabs": {
-    "message": "他のタブを休止"
-  },
-  "action_createSnapshot": {
-    "message": "スナップショットを作成"
-  }
+  "extensionName": { "message": "NiceTab - タブ管理" },
+  "extensionDescription": { "message": "ブラウザーのタブをカテゴリやグループに整理・保存する拡張機能です。" },
+  "action_openAdminTab": { "message": "NiceTab の管理画面を開く" },
+  "action_sendAllTabs": { "message": "すべてのタブを送信" },
+  "action_sendAllWindowsTabs": { "message": "すべてのウィンドウのタブを送信" },
+  "action_sendCurrentGroup": { "message": "現在のタブグループを送信" },
+  "action_sendCurrentTab": { "message": "現在のタブを送信" },
+  "action_sendOtherTabs": { "message": "他のタブを送信" },
+  "action_sendLeftTabs": { "message": "左側のタブを送信" },
+  "action_sendRightTabs": { "message": "右側のタブを送信" },
+  "action_globalSearch": { "message": "保存済みタブを検索" },
+  "action_startSync": { "message": "同期を開始" },
+  "action_hibernateTabs": { "message": "他のタブを休止" },
+  "action_createSnapshot": { "message": "スナップショットを作成" }
 }
