@@ -3,213 +3,60 @@
 ![NiceTab](https://github.com/user-attachments/assets/6099f21e-fc0a-4bb5-8280-e497be3fb0ae)
 
 <p>
-  English | <a href="./README-zh.md">中文</a> | <a href="./README-ru.md">Русский</a>
+  japanese | <a href="./README-zh.md">中文</a> | <a href="./README-ru.md">Русский</a>
 </p>
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/web-dahuyou/NiceTab)
 
-## Overview
+# NiceTab 日本語版
 
-**Note** The extension is actively developed with ongoing updates. The screenshots below reflect history versions only. We encourage you to install the latest release for the most up-to-date experience.
+![NiceTab](https://github.com/user-attachments/assets/6099f21e-fc0a-4bb5-8280-e497be3fb0ae)
 
-- NiceTab is an `open source` browser extension that makes managing your browser tabs quick and convenient.
-- Named `NiceTab` with the hope that it would be a "nice" tab management tool.
-- Similar to other tab management extensions like `OneTab`, `Toby`, `SessionBuddy`, `N-Tab` and `KepTab`. it supports browsers such as Chrome, Firefox, Microsoft Edge, and any Chromium based browser.
-- Developed using `React` and based on the [`wxt framework`](https://wxt.dev/), which provides built-in templates for `Vanilla`, `Vue`, `React`, `Svelte`, and `Solid`.
-- The UI is powered by the popular [`Ant Design`](https://ant-design.antgroup.com/) library.
+<p>
+  日本語 | <a href="./README.md">English</a> | <a href="./README-zh.md">中文</a> | <a href="./README-ru.md">Русский</a>
+</p>
 
+NiceTab は、OneTab、Toby、SessionBuddy などの代替として使える、ブラウザーのタブ管理拡張機能です。このフォークでは管理画面、Chrome の拡張機能メニュー、拡張機能名・説明を日本語化しています。
 
-## Extension Installation
+## Chrome 版のビルドとインストール
 
-- Google Chrome Web Store: [Chrome Web Store](https://chromewebstore.google.com/detail/fonflmjnjbkigocpoommgmhljdpljain)
-- Microsoft Edge Add-ons: [Microsoft Edge Addons](https://microsoftedge.microsoft.com/addons/detail/ompjiaelpibiggcnanhbdblkhfdmkgnl)
-  (Note that due to longer review times, the Edge store release may lag behind the Chrome version.)
-- Firefox Browser Add-ons: [Firefox Browser Addons](https://addons.mozilla.org/firefox/addon/nice-tab-manager)
+このフォークの日本語対応を利用するには、上流のウェブストア版ではなく、このリポジトリからビルドした版を読み込んでください。
 
-### Notes
-For security reasons, Firefox may not allow privileged URLs such as:
-- chrome: URLs
-- javascript: URLs
-- data: URLs
-- file: URLs
-- Firefox's privileged about: URLs (e.g., `about:config`, `about:addons`, `about:debugging`). Non-privileged URLs (e.g., `about:blank`) are allowed.
+```bash
+git clone https://github.com/agenasumisosiru/NiceTab-jp.git
+cd NiceTab-jp
+git checkout feat/japanese-locale
+pnpm install
+pnpm build:chrome
+```
 
-If a page URL matches any of the above cases, opening tab may not work. Please manually copy the URL to open it.
+ビルドが完了したら Chrome で `chrome://extensions` を開き、「デベロッパー モード」を有効にして「パッケージ化されていない拡張機能を読み込む」を選びます。`wxt build` が生成した Chrome の出力ディレクトリ（通常 `.output/chrome-mv3`）を指定してください。配布用 ZIP は `pnpm zip:chrome` で作成できます。
 
+初回起動後、管理画面の「設定」から言語を「日本語」にしてください。ブラウザー言語が日本語の場合は初期設定時に自動判定されます。
 
-## Features
+## 主な機能
 
-Comprehensive user guide | <a href="./GUIDE.md">NiceTab User Guide</a>
+- 全タブ、現在のタブ、他のタブ、左右のタブ、タブグループを一括保存
+- カテゴリ・グループ・タブの整理、検索、並べ替え、複製、重複排除
+- ブラウザーのタブグループとの連携
+- タブの復元、休止、スナップショット、ごみ箱
+- NiceTab、OneTab、Toby、SessionBuddy、KepTab 形式のインポート／エクスポート
+- Gists（GitHub / Gitee）および WebDAV へのリモート同期
+- カスタム新しいタブページ、ライト／ダークテーマ、テーマカラー
+- 日本語、簡体字中国語、繁体字中国語、英語、ロシア語の表示
 
-### General Features
+詳しい操作方法は [日本語ユーザーガイド](./GUIDE-ja.md) を参照してください。
 
-- Supports sending all tabs, all tabs (all windows), currect tab group, current tabs, other tabs, left-side tabs, and right-side tabs in just one click.
-- Supports sending native browser tab groups into NiceTab, and re-open them as native tab groups in your browser.
-- Supports browser command shortcuts (open the NiceTab-Admin-Page, send all tabs, send the current tab, etc.).
-- Preferences support.
-- Offers **import** in multiple formats, with local file saving supported. Currently supports for `NiceTab`, `OneTab`, `Toby`, `SessionBuddy` and `KepTab`. More formats can be added later as needed.
-- Supports custom **Newtab page**.
-- **Remote sync**.
-- Supports manual switch for **Light/Dark** themes.
-- Supports **Theme color switch**, currently with several preset theme colors(More can be added later as needed).
-- **Multilingual support**, currently Chinese, English, and Russian (contributions for more natural wording or additional languages are welcome).
-- Supports **Recycle Bin** feature: deleted tabs, tab groups, and categories go to a recycle bin where you can restore or permanently delete them.
-- Supports manually hibernate inactive tabs from memory. Hibernated tabs are still visible on the tab strip and will automatically reload when activated.
+## 開発・検証
 
-### List Management
+```bash
+pnpm compile
+pnpm test
+pnpm lint:no-fix
+pnpm build:chrome
+```
 
-- More features can be found in the `User Guide`.
-- Manage categories, tab groups, and tabs. Includes easy saving, restoring, starring (favorites), locking, adding, deleting, editing, searching, and drag-and-drop reordering, etc.
-- Supports global search for tab and URL, and jump straight to the result.
-- Supports category locking, preventing accidental operations.
-- Categories support expand/collapse, creation of categories and tab groups, making it easy to move other tab groups/tabs to new categories/groups.
-- Supports keyboard shortcuts for certain operations, such as reordering categories or tab groups.
-- Supports sorting tab groups by group name or creation time.
-- Supports one-click copying of all links in a tab group, with a customizable link template.
-- Supports manual deduplication of tabs.
-- Supports multi-select tabs, move or copy tabs across tab groups.
-- Tabs support custom editing of title and URL.
+Chrome 用ビルドは `pnpm build:chrome`、配布用 ZIP は `pnpm zip:chrome` です。Firefox 版は `pnpm build:firefox` で別途ビルドします。
 
-### Preferences
+## 上流プロジェクト
 
-- More settings can be found in extension `NiceTab Admin Page > Settings` or refer to the `User Guide`.
-
-### Remote Sync
-
-- Supports both `Gists` and `WebDAV` sync.
-  - Gists Sync: You can sync your data to GitHub or Gitee by configuring your personal access token (note, token permissions only check `gists` scope). Potentially more platforms may be supported in the future.
-  - WebDAV Sync: You can sync your data to a WebDAV service by configuring the WebDAV URL, username, and password (supports multiple WebDAV accounts).
-- Supports remote sync for both tab list and preferences.
-- Auto Sync: Automatic synchronization is supported; you can enable/disable it and set syncing frequency and method.
-
-**Note**: note that merging push do not perform a diff-comparison delete; it merges remote and local, then pushes to remote. To sync deletions, remove them locally and then manually overwrite the remote.
-
-## Screenshots of Features
-
-### Extension Icon (Popup)
-
-- By default, clicking the `NiceTab` extension icon opens a popup panel where you can quickly access the list page, settings page, import/export page, sync page and recycle bin page.
-- You can quickly switch theme colors or view/close the current open tab.
-- If no popup modules are configured in preferences, clicking the extension icon sends all tabs to NiceTab by default.
-
-![NiceTab-extension-icon-1](https://github.com/user-attachments/assets/debe19ca-cd80-4ec9-a8d3-79de6dafb5a7)
-
-![NiceTab-extension-icon-2](https://github.com/user-attachments/assets/f441c6c5-6da3-4769-a8a7-6691c0263613)
-
-### Right-Click Menu
-
-- Right-clicking the extension icon reveals a quick-access context menu, you can open the `NiceTab Admin Page` (aka `Dashboard`) or try one-click actions to send all tabs, the current tab, other tabs, left-side tabs, or right-side tabs.
-
-![NiceTab-right-click-menu](https://github.com/user-attachments/assets/555a2ed0-50d3-4bb3-8008-c6e61792aa9c)
-
-### Tab List
-
-- Manage sent tabs in categories and groups.
-- The left panel supports drag-and-drop reordering and shortcuts sorting. The right panel displays all tab groups and tabs for the current category, and allows corresponding operations.
-- You can easily delete tab groups or move them to other categories. Multiple tabs can also be selected and moved or deleted in bulk.
-
-![NiceTab-list-page](https://github.com/user-attachments/assets/244fb841-a036-42ca-9840-edb29b0e81db)
-
-### Preferences
-
-- Customize various preference settings according to your own preferences.
-
-![NiceTab-preferences](https://github.com/user-attachments/assets/18448d35-060c-47fe-9ad5-251b2324e7a0)
-
-### Import/Export
-
-- Currently supports import for `NiceTab`, `OneTab`, `Toby`, `SessionBuddy` and `KepTab` formats.
-- You can import `OneTab`, `Toby`, `SessionBuddy` or `KepTab` data, and parse it into `NiceTab` format.
-- You can export `NiceTab` data to local file.
-
-![NiceTab-import-export](https://github.com/user-attachments/assets/48b6d09b-342c-448e-b235-ae54c4aae235)
-
-### Remote Sync
-
-Supports syncing via Gitee Gists, GitHub Gists, and WebDAV:
-- Gists Sync: You can sync your data to your Github and Gitee accounts as needed, just configure your access token.
-- WebDAV Sync: You can sync your data to a WebDAV service by configuring the WebDAV URL, username, and password (supports multiple WebDAV accounts).
-
-**Note**:
-- For gists, token permissions only check `gists` scope.
-- Merging push sync does not perform a diff-comparison delete. It merges remote and local data, then pushes to remote, so tabs increase cumulatively. To sync deletions, remove them locally and then manually overwrite the remote.
-
-![NiceTab-remote-sync](https://github.com/user-attachments/assets/446c6b94-55ad-46b3-a790-45e29027ee05)
-
-### Theme Color Switching
-
-You can easily switch theme colors in the management dashboard or the popup panel.
-
-![NiceTab-theme-color-switch](https://github.com/user-attachments/assets/33ba956f-6801-490d-8507-b28854a8c0bc)
-
-### Light/Dark Mode
-
-Light and dark themes are available, which can be toggled in the management dashboard.
-
-![NiceTab-light-dark-switch](https://github.com/user-attachments/assets/148d9f26-d1ad-4f1c-909a-02ad099432c2)
-
-### Language Switching
-
-Switch between Chinese, English, and Russian in the management dashboard.
-
-![NiceTab-language-switch](https://github.com/user-attachments/assets/ce9a7a2d-8b71-400a-98dd-e76cb565c021)
-
-### 全局搜索
-Global search all the tabs saved in NiceTab (including tab title and tab URL).
-
-![NiceTab-global-search-1](https://github.com/user-attachments/assets/6e94258d-75f5-4964-8b3b-a8fdefd93b94)
-
-![NiceTab-global-search-2](https://github.com/user-attachments/assets/a799282c-f702-4133-9478-bccf048d0a9d)
-
-### Recycle Bin
-
-- Deleted categories, tab groups, or tabs go into the recycle bin.
-- You can restore them back to the tab list or permanently delete them.
-
-![NiceTab-recycle-bin](https://github.com/user-attachments/assets/2f22b6d3-ccf0-4939-a905-b781b74b25e9)
-
-## Usage
-
-- Click the extension icon to open the popup panel displaying the currently open tabs. From there, you can access the Admin Page or quickly switch themes, etc.
-- Right-click the extension icon to display context menu items for sending tabs to NiceTab.
-- In the Dashboard (Admin Page), you can switch languages and themes, or toggle light/dark mode.
-- In `Dashboard > List` page, view all sent tabs organized by category and group.
-- In `Dashboard > Settings` page, manage the extension's preferences.
-- In `Dashboard > Import & Export` page, import or export tabs in NiceTab, OneTab, SessionBuddy, Toby or KepTab formats.
-- In `Dashboard > Sync` page, sync tabs to your GitHub and Gitee accounts as needed, just configure your access token (note, token permissions only check `gists` scope).
-- In `Dashboard > Recycle Bin` page, view and manage any deleted categories, tab groups, or tabs. You can restore or permanently delete them.
-
-### Notes
-For security reasons, Firefox may not allow privileged URLs such as:
-- chrome: URLs
-- javascript: URLs
-- data: URLs
-- file: URLs
-- Firefox's privileged about: URLs (e.g., `about:config`, `about:addons`, `about:debugging`). Non-privileged URLs (e.g., `about:blank`) are allowed.
-
-If a page URL matches any of the above cases, opening tab may not work. Please manually copy the URL to open it.
-
-## Community & Feedback
-
-Feel free to join our QQ group: 924270240
-
-<img width="300" alt="NiceTab Community" src="https://github.com/user-attachments/assets/f773c96e-8f4f-4e53-9ffa-20c11690675a">
-
-## References
-
-- [Chrome for Developers - Extensions API Docs](https://developer.chrome.com/docs/extensions/reference/api)
-- [Mozilla for Developers - WebExtensions API Docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
-- [WXT Official Site](https://wxt.dev/)
-- [Ant Design](https://ant-design.antgroup.com/)
-- [React Router](https://reactrouter.com/)
-- [styled-components](https://styled-components.com/)
-- [react-intl](https://formatjs.io/docs/react-intl)
-- [pragmatic-drag-and-drop](https://atlassian.design/components/pragmatic-drag-and-drop/about)
-
-## Extension Development
-
-See [NiceTab Contributing Guide](./CONTRIBUTING.md)
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=web-dahuyou/NiceTab&type=Date)](https://www.star-history.com/#web-dahuyou/NiceTab&Date)
+[web-dahuyou/NiceTab](https://github.com/web-dahuyou/NiceTab) を基にしています。ライセンスは上流プロジェクトの GPL-3.0 に従います。
